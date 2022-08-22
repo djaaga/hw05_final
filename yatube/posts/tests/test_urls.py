@@ -3,9 +3,9 @@ from django.core.cache import cache
 from django.test import Client, TestCase
 
 from ..models import Group, Post
-from core.views import handler500, handler404, handler403
+
 User = get_user_model()
-from django.test.client import RequestFactory
+
 
 class PostURLTests(TestCase):
     @classmethod
