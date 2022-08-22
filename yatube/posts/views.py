@@ -37,10 +37,11 @@ def profile(request, username):
     posts = author.posts.select_related('group')
     posts_count = author.posts.count()
     page_obj = paginate(request, posts)
-    following = request.user.is_authenticated \
-            and Follow.objects.filter(user=request.user,
-                                      author__username=username
-                                      ).exists()
+    following = (
+        request.user.is_authenticated and Follow.objects.filter(
+            user=request.user, author__username=username
+        ).exists()
+    )
     context = {
         'author': author,
         'posts_count': posts_count,
