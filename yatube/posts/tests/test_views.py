@@ -210,7 +210,9 @@ class PaginatorViewsTest(TestCase):
             )
         )
         self.assertEqual(
-            len(response.context['page_obj'].object_list), settings.POSTS_PAGINATE
+            len(
+                response.context[
+                    'page_obj'].object_list), settings.POSTS_PAGINATE
         )
 
         response = self.client.get(
@@ -218,7 +220,10 @@ class PaginatorViewsTest(TestCase):
 
         )
         self.assertEqual(
-            len(response.context['page_obj'].object_list), settings.POSTS_PAGINATE)
+            len(
+                response.context[
+                    'page_obj'].object_list), settings.POSTS_PAGINATE
+        )
 
     def test_second_page_utils_three_posts(self):
         response = self.client.get(reverse('posts:index') + '?page=2')
