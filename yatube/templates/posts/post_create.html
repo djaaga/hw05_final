@@ -10,6 +10,8 @@
       <div class="card-header">
           {% if is_edit %}Редактировать запись{% else %}Новая запись{% endif %}
         </div>
+        <div class="card-body">        
+          <form method="post" enctype="multipart/form-data" action="{% if is_edit %}{% url 'posts:post_edit' post.id %}{% else %}{% url 'posts:post_create' %}{% endif %}">
         <div class="card-body">
           {% if form.errors %}
               {% for field in form %}
