@@ -76,8 +76,8 @@ class Comment(models.Model):
         related_name='comments',
     )
     text = models.TextField(
-        'Текст поста',
-        help_text='Введите текст поста'
+        'Текст комментария',
+        help_text='Введите текст комментария'
     )
     created = models.DateTimeField(auto_now_add=True)
 

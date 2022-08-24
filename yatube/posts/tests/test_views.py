@@ -1,11 +1,11 @@
 from itertools import islice
 
 from django import forms
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.test import Client, TestCase
 from django.urls import reverse
-from posts.utils import POSTS_PAGINATE
 
 from ..models import Group, Post
 
@@ -201,7 +201,7 @@ class PaginatorViewsTest(TestCase):
     def test_first_page_utils_ten_posts(self):
         response = self.authorized_client.get(reverse('posts:index'))
         self.assertEqual(
-            len(response.context['page_obj']), POSTS_PAGINATE
+            len(response.context['page_obj']), settings.POSTS_PAGINATE
         )
 
         response = self.authorized_client.get(
@@ -210,7 +210,7 @@ class PaginatorViewsTest(TestCase):
             )
         )
         self.assertEqual(
-            len(response.context['page_obj'].object_list), POSTS_PAGINATE
+            len(response.context['page_obj'].object_list), settings.POSTS_PAGINATE
         )
 
         response = self.client.get(
@@ -218,7 +218,7 @@ class PaginatorViewsTest(TestCase):
 
         )
         self.assertEqual(
-            len(response.context['page_obj'].object_list), POSTS_PAGINATE)
+            len(response.context['page_obj'].object_list), settings.POSTS_PAGINATE)
 
     def test_second_page_utils_three_posts(self):
         response = self.client.get(reverse('posts:index') + '?page=2')

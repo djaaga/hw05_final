@@ -103,6 +103,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CSRF_FAILURE_VIEW = 'core.views.handler403'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+POSTS_PAGINATE = 10
 POSTS_LIMIT = 40
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = '/create/'
