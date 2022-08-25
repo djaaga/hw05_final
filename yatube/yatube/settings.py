@@ -7,10 +7,16 @@ SECRET_KEY = '!+)ejvf9y4w&-u%=!t*a!%rwgr3t+8&+9&^-6yczx83i5yqy%&'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'www.Djaaga.pythonanywhere.com',
+    'Djaaga.pythonanywhere.com',
     'localhost',
     '127.0.0.1',
     '[::1]',
     'testserver',
+]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
 ]
 
 INSTALLED_APPS = [
@@ -25,6 +31,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'about',
     'sorl.thumbnail',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -35,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'yatube.urls'
